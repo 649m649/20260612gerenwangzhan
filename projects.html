@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>门慧鑫 · 数据作品集</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #1e293b;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        .portfolio-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            font-weight: 500;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .back-home {
+            background: #f1f5f9;
+            padding: 6px 16px;
+            border-radius: 30px;
+        }
+
+        /* 头部 */
+        .sub-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 2rem;
+            text-align: center;
+        }
+
+        .sub-header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 8px;
+        }
+
+        /* 主体 */
+        .content {
+            padding: 2.5rem 3rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 80px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid #667eea;
+            padding-left: 1rem;
+        }
+
+        /* 作品卡片网格 */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .project-card {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid #eef2ff;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(102, 126, 234, 0.25);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background: #f1f5f9;
+        }
+
+        .card-info {
+            padding: 1.2rem 1.2rem 1.5rem;
+        }
+
+        .card-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #0f172a;
+        }
+
+        .card-info p {
+            color: #475569;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech {
+            background: #eef2ff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #4338ca;
+        }
+
+        /* 证书/图片展示区 */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .gallery-item {
+            flex: 1 1 240px;
+            background: #f8fafc;
+            border-radius: 28px;
+            padding: 1rem;
+            text-align: center;
+            transition: 0.2s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .gallery-item {
+    flex: 1 1 280px;   /* 原 240px，增大最小宽度 */
+}
+.gallery-item img {
+    width: 100%;
+    height: 220px;     /* 从 150px 大幅增加 */
+    object-fit: cover; /* 保持图片比例裁剪，如需完整显示可用 contain */
+    border-radius: 20px;
+}
+
+        .gallery-item p {
+            font-weight: 500;
+            color: #334155;
+        }
+
+        /* 页脚 */
+        .footer {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            text-align: center;
+            color: #475569;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.85rem;
+        }
+
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        @media (max-width: 680px) {
+            .content {
+                padding: 1.5rem;
+            }
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="portfolio-container">
+    <!-- 导航栏 -->
+    <div class="navbar">
+        <div class="logo">📊 门慧鑫 · 数据作品集</div>
+        <ul class="nav-links">
+            <li><a href="#ml-projects">🤖 机器学习项目</a></li>
+            <li><a href="#bigdata">🏔️ 大数据工程</a></li>
+            <li><a href="#certificates">🏆 荣誉&证书</a></li>
+            <li><a href="index.html" class="back-home">🏠 返回主简历</a></li>
+        </ul>
+    </div>
+
+    <!-- 头部 -->
+    <div class="sub-header">
+        <h1>✨ 数据科学作品集</h1>
+        <p>数据分析 · 大数据开发 · 机器学习实践 —— 将想法落地为价值</p>
+    </div>
+
+    <div class="content">
+        <!-- Section 1：机器学习项目 (含图片) -->
+        <section id="ml-projects">
+            <h2>🤖 机器学习 & 挖掘项目</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img class="card-img" src="https://picsum.photos/id/20/400/200" alt="用户画像分析项目示意图">
+                    <div class="card-info">
+                        <h3>电商用户画像分析</h3>
+                        <p>基于真实脱敏数据，利用Python + Scikit-learn完成用户分群与RFM模型，可视化输出高价值客户画像，提升营销转化率预测12%。</p>
+                        <div class="tech-stack">
+                            <span class="tech">Pandas</span>
+                            <span class="tech">Matplotlib</span>
+                            <span class="tech">K-Means</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img class="card-img" src="https://picsum.photos/id/26/400/200" alt="交通流量预测">
+                    <div class="card-info">
+                        <h3>城市交通流量预测</h3>
+                        <p>数学建模竞赛项目：使用LSTM时序模型预测未来1小时车流量，准确率达85%，并设计可视化仪表盘。</p>
+                        <div class="tech-stack">
+                            <span class="tech">PyTorch</span>
+                            <span class="tech">时序分析</span>
+                            <span class="tech">Seaborn</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img class="card-img" src="https://picsum.photos/id/155/400/200" alt="推荐系统Demo">
+                    <div class="card-info">
+                        <h3>协同过滤推荐系统</h3>
+                        <p>基于MovieLens数据集实现ItemCF算法，构建简易电影推荐引擎，评估召回率与准确率。</p>
+                        <div class="tech-stack">
+                            <span class="tech">Python</span>
+                            <span class="tech">Scikit-learn</span>
+                            <span class="tech">Numpy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2：大数据工程 (含图片) -->
+        <section id="bigdata">
+            <h2>🏔️ 大数据工程 & 实训</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img class="card-img" src="https://picsum.photos/id/0/400/200" alt="Hadoop生态架构图">
+                    <div class="card-info">
+                        <h3>Hadoop + Hive 离线数仓</h3>
+                        <p>搭建电商用户行为数据仓库，使用Hive进行亿级数据ETL与分组聚合，优化查询效率30%。</p>
+                        <div class="tech-stack">
+                            <span class="tech">HDFS</span>
+                            <span class="tech">HiveQL</span>
+                            <span class="tech">MapReduce</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img class="card-img" src="https://picsum.photos/id/60/400/200" alt="Spark 数据分析">
+                    <div class="card-info">
+                        <h3>Spark 用户行为分析</h3>
+                        <p>利用Spark SQL处理日志数据，计算用户留存率及活跃度，产出可视化分析报告。</p>
+                        <div class="tech-stack">
+                            <span class="tech">Spark</span>
+                            <span class="tech">DataFrame</span>
+                            <span class="tech">Scala</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3：荣誉 & 可视化作品 / 证书图片区 (多张图片) -->
+        <section id="certificates">
+            <h2>🏆 竞赛荣誉 & 技能证书</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://s3.bmp.ovh/2026/06/12/Ni0uKKD7.jpg" alt="挑战杯入围省赛">
+                    <p>🏅 “挑战杯”入围省赛</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://s3.bmp.ovh/2026/06/12/GSpTxTQ9.jpg" alt="普通话二甲证书">
+                    <p>🎙️ 普通话二甲证书</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://s3.bmp.ovh/2026/06/12/16uxvyB2.jpg" alt="英语四级证书">
+                    <p>📖 CET-4 优秀通过</p>
+                </div>
+            </div>
+            <div style="margin-top: 1.2rem; background: #f1f5f9; padding: 1rem 1.2rem; border-radius: 1.5rem;">
+                <p style="color:#334155">⭐ 更多实训/竞赛图片均可随时替换——只需修改上方 <code>src</code> 图片链接，即可展示您的真实证书或项目截图。</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- 底部Footer -->
+    <div class="footer">
+        <p>© 2026 门慧鑫 · 数据科学与大数据技术 | 作品集持续更新</p>
+        <p>📧 2891299228@qq.com  |  <a href="index.html">📄 返回个人主简历</a>  |  💡 所有项目图片均为示意，可替换为实际成果</p>
+    </div>
+</div>
+</body>
+</html>
